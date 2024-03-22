@@ -9,7 +9,7 @@ const router = Router();
 
 connect();
 router.get("/enviarmensaje", async (req, res) => {
-  await get_enviarmensaje(req, res, sock);
+  await get_enviarmensaje(req, res);
 });
 
 

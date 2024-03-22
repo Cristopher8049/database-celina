@@ -4,10 +4,10 @@ const executeQuery = (query, callback, con) => con.query(query, callback);
 
 const getUsers = (callback) => {
   var con = mysql.createConnection({
-    host: "database-celina.cf0wny27l077.us-east-1.rds.amazonaws.com",
+    host: "database-multipagos.cvokw8c08gec.us-east-2.rds.amazonaws.com",
     user: "admin",
-    password: "Celina1234!",
-    database: "celina",
+    password: "Multipagos1234!",
+    database: "multipago",
   });
   con.connect(function (err) {
     if (err) throw err;
@@ -26,10 +26,10 @@ const getUsers = (callback) => {
 };
 const pushUsers = (callback1) => {
   var conn = mysql.createConnection({
-    host: "database-celina.cf0wny27l077.us-east-1.rds.amazonaws.com",
+    host: "database-multipagos.cvokw8c08gec.us-east-2.rds.amazonaws.com",
     user: "admin",
-    password: "Celina1234!",
-    database: "celina",
+    password: "Multipagos1234!",
+    database: "multipago",
   });
   conn.connect(function (err) {
     if (err) throw err;

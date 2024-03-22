@@ -47,25 +47,25 @@ const sendMessage = async (params, res, sock) => {
       }
 
 
-  const id = `591${user.phone}@s.whatsapp.net`;
+      const id = `${user.phone}@s.whatsapp.net`;
 
-  try {
-    await sock.sendMessage(id, { text: user.message });
-    if (user.img !== null) {
-      await sock.sendMessage(id, {
-        image: { url: user.img },
-        caption: "",
-      });
-    }
-    if (user.pdf !== null) {
-      await sock.sendMessage(id, {
-        document: { url: user.pdf },
-        caption: "",
-      });
-    }
+      try {
+        await sock.sendMessage(id, { text: user.message });
+        if (user.img !== null) {
+          await sock.sendMessage(id, {
+            image: { url: user.img },
+            caption: "",
+          });
+        }
+        if (user.pdf !== null) {
+          await sock.sendMessage(id, {
+            document: { url: user.pdf },
+            caption: "",
+          });
+        }
 
-    console.log(`Mensaje enviado correctamente a ${user.phone} | ${time}.`);
-    codeStatus = 505;
+        console.log(`Mensaje enviado correctamente a ${user.phone} | ${time}.`);
+        codeStatus = 505;
 
         pushUsers(async (conn) => {
           coutTotal++;
@@ -76,7 +76,7 @@ const sendMessage = async (params, res, sock) => {
             user.client,
 
           ]);
-          conn.query(`DELETE FROM contacts WHERE phone = ${user.phone}`);
+          // conn.query(`DELETE FROM contacts WHERE phone = ${user.phone}`);
           conn.end();
           if (coutTotal === users.length) {
             console.log("Todos los mensajes fueron enviados correctamente.");
